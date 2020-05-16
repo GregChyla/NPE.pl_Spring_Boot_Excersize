@@ -24,4 +24,9 @@ public class PostController {
     public Post getSinglePost(@PathVariable long id) {
         return postService.getSinglePost(id);
     }
+
+    @GetMapping("/posts/{pageStart}/{pageSize}")
+    public List<Post> getPostsByPage(@PathVariable int pageStart, @PathVariable int pageSize) {
+        return postService.getPostsByPage(pageStart, pageSize);
+    }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Post {
+public class Post<Comnment> {
     @Id
     private long id;
     private String title;
