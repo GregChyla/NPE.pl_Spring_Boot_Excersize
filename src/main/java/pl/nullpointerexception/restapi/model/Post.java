@@ -13,14 +13,14 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Post<Comnment> {
+public class Post {
     @Id
     private long id;
     private String title;
     private String content;
     private LocalDateTime created;
     @OneToMany
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "postId")
     private List<Comment> comment;
 
 }

@@ -10,13 +10,17 @@ import java.util.List;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
-    List<Post> findAllByTitle(String title);
 
-    @Query ("select p from Post p " +
-            "left join fetch p.comment")
-    List<Post> findAllPosts();
+    List<Post> findAll();
 
-    @Query ("select p from Post p " +
+    @Query("select p from Post p " +
             "left join fetch p.comment")
     List<Post> findAllPostsByPage(Pageable page);
+
+    @Query("Select p From Post p")
+    List<Post> findAllPosts(Pageable page);
+
+    @Query("select p from Post p " +
+            "left join fetch p.comment")
+    List<Post> findAllWithComments(Pageable page);
 }

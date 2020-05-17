@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import pl.nullpointerexception.restapi.model.Comment;
-import pl.nullpointerexception.restapi.repository.CommentRepository;
 import pl.nullpointerexception.restapi.service.CommentService;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class CommentController {
         return commentService.findAllComments();
     }
 
-    @GetMapping("/posts/{id}/comments")
+    @GetMapping("/comments/posts/{id}")
     public List<Comment> getCommentsByPostId(@PathVariable Long id) {
         return commentService.findCommentsByPostId(id);
     }
